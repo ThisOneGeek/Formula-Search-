@@ -61,15 +61,15 @@ def findFormulaFromTextSearch(formulas):
     '''Allows searching through the formula list through the use of text keywords.'''
 
     #Creates a list of all formulas.
-    a = []
+    formulaList = []
     for i in range(0, len(list(formulas.values())[0])):
         for j in range(0, len(list(list(formulas.values())[0].values())[i])):
-            a.append(list(list(list(formulas.values())[0].values())[i].values())[j])
+            formulaList.append(list(list(list(formulas.values())[0].values())[i].values())[j])
 
     #Creates a list of formula names (searchedItem), and a separate list of all their relevant info.
-    searchedItem = [[i for i in x] for x in a]
-    b = a[0]
-    b.update(a[1])
+    searchedItem = [[i for i in x] for x in formulaList]
+    formulaListDisplay = formulaList[0]
+    formulaListDisplay.update(formulaList[1])
 
     #Asks the user to give a keyword to filter off of, and then filters the list of formulas.
     textChoice = input("Please enter a keyword to search for a formula: ")
@@ -80,7 +80,7 @@ def findFormulaFromTextSearch(formulas):
     itemChoice = input("Please enter a number from 1 - " + str(len(searchedItem)) + " to choose your formula: ")
 
     #Returns the chosen formula and all relevant info.
-    print(b[searchedItem[int(itemChoice) - 1]])
+    print(formulaListDisplay[searchedItem[int(itemChoice) - 1]])
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
