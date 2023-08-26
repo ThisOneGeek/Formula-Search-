@@ -18,10 +18,24 @@
 				"Tag - Current": [], "Tag - Circuits": [], "Tag - Electronics": []
 			},
 			"Simple Resistance" : {
-				"Equations" : ["R = V/I"],
+				"Equations" : ["R=V/I"],
 				"Components" : [ "R = Resistance (Ohms)", "I = Current (Amps)", "V = Voltage (Volts)"],
 				
 				"Tag - Resistance": [], "Tag - Circuits": [], "Tag - Electronics": []
+			}
+		}
+	},
+	"Physics" : {
+		"Mechanics" : {
+			"Average Speed" : {
+				"Equations" : ["v=Δd/Δt"], 
+				"Components" : ["v = Speed (m/s)", "Δd = Distance (Meters)", "Δt = Time (Seconds)"],
+				"Tag - Speed": [], "Tag - Mechanics": []
+			},
+			"Acceleration" : {
+				"Equations" : ["a=Δv/Δt"], 
+				"Components" : ["a = Acceleration (m/(s^2)", "Δv = Speed (m/s)", "Δt = Time (Seconds)"],
+				"Tag - Speed": [], "Tag - Mechanics": []
 			}
 		}
 	}
