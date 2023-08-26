@@ -1,0 +1,29 @@
+{
+"Formulas": {
+	"Electrical" : {
+		"Electronics: Basics": {
+			"Simple Power" : {
+				"Equations" : ["P=I*V", "P=(I^2)*R", "P=(V^2)/R"], 
+				"Components" : ["P = Power (Watts)", "I = Current (Amps)", "V = Voltage (Volts)", "R = Resistance (Ohms)"],
+				"Tag - Power": [], "Tag - Circuits": [], "Tag - Electronics": []
+			},
+			"Simple Voltage" : {
+				"Equations" : ["V=I*R"],
+				"Components" : ["V = Voltage (Volts)", "I = Current (Amps)", "R = Resistance (Ohms)"],
+				"Tag - Voltage": [], "Tag - Circuits": [], "Tag - Electronics": []
+			},
+			"Simple Current" : {
+				"Equations" : ["I=V/R"],
+				"Components" : ["I = Current (Amps)", "V = Voltage (Volts)", "R = Resistance (Ohms)"],
+				"Tag - Current": [], "Tag - Circuits": [], "Tag - Electronics": []
+			},
+			"Simple Resistance" : {
+				"Equations" : ["R = V/I"],
+				"Components" : [ "R = Resistance (Ohms)", "I = Current (Amps)", "V = Voltage (Volts)"],
+				
+				"Tag - Resistance": [], "Tag - Circuits": [], "Tag - Electronics": []
+			}
+		}
+	}
+}
+}
