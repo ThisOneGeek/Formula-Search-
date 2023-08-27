@@ -34,12 +34,16 @@ def findFormulaFromTags(inverted_dict, formulas):
 
     #Allows users to search by picking an initial tag.
     print(tags)
-    tagChoice = input("Please select a number from 1 to "  + str(len(tags)) +" to pick a tag: ")
+    tagChoice = input("Please select a number from 1 to "  + str(len(tags)) +" to pick a tag, or 'x' to return: ")
+    if tagChoice == "x":
+        return
     tagPath = [tags[int(tagChoice) - 1]]
 
     #Give all results from the chosen tag, and allows user to pick the formula they want.
     print(list(inverted_dict[tagPath[0]].keys()))
-    tagChoice = input("Please select a number from 1 to "  + str(len(list(inverted_dict[tagPath[0]]))) +" to pick a tag: ")
+    tagChoice = input("Please select a number from 1 to "  + str(len(list(inverted_dict[tagPath[0]]))) +" to pick a tag, or 'x' to return: ")
+    if tagChoice == "x":
+        return
     tagPath.append(list(inverted_dict[tagPath[0]].keys())[int(tagChoice) - 1])
 
     #Works the original dictionary from inside out, so to speak, using the inverted dictionary to recreate the path.
@@ -70,13 +74,16 @@ def findFormulaFromTextSearch(formulas):
     formulaListDisplay.update(formulaList[1])
 
     #Asks the user to give a keyword to filter off of, and then filters the list of formulas.
-    textChoice = input("Please enter a keyword to search for a formula: ")
+    textChoice = input("Please enter a keyword to search for a formula, or 'x' to return: ")
+    if textChoice == "x":
+        return
     searchedItem = [i for i in [item for row in searchedItem for item in row] if textChoice in i]
 
     #Displays the filtered equations from the text input and asks the user to choose a formula from this list.
     print(searchedItem)
-    itemChoice = input("Please enter a number from 1 - " + str(len(searchedItem)) + " to choose your formula: ")
-
+    itemChoice = input("Please enter a number from 1 - " + str(len(searchedItem)) + " to choose your formula, or x to return: ")
+    if itemChoice == "x":
+        return
     #Returns the chosen formula and all relevant info.
     print(formulaListDisplay[searchedItem[int(itemChoice) - 1]])
 
@@ -89,12 +96,16 @@ def findFormulaFromCategory(formulas):
 
     #Displays the current level and allows for the user to pick the next level to enter.
     print(list(currentLevel.keys()))
-    catChoice = input("Please enter a number from 1 - " + str(len(currentLevel)) + " to choose a category: ")
+    catChoice = input("Please enter a number from 1 - " + str(len(currentLevel)) + " to choose a category, or 'x' to return: ")
+    if catChoice == "x":
+        return
     currentLevel = list(currentLevel[list(currentLevel.keys())[int(catChoice) - 1]].values())[0]
 
     #Displays all formulas within topic subsection, allowing user to pick the desired Formula.
     print(list(currentLevel.keys()))
-    catChoice = input("Please enter a number from 1 - " + str(len(currentLevel)) + " to choose your formula: ")
+    catChoice = input("Please enter a number from 1 - " + str(len(currentLevel)) + " to choose your formula or 'x' to return: ")
+    if catChoice == "x":
+        return
     currentLevel = currentLevel[list(currentLevel.keys())[int(catChoice) - 1]]
     print(currentLevel)
 
