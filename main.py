@@ -1,7 +1,5 @@
-# This is a sample Python script.
+
 import json
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
 def loadJSON():
@@ -82,14 +80,48 @@ def findFormulaFromTextSearch(formulas):
     #Returns the chosen formula and all relevant info.
     print(formulaListDisplay[searchedItem[int(itemChoice) - 1]])
 
-# Press the green button in the gutter to run the script.
+
+def findFormulaFromCategory(formulas):
+    '''Allows searching through category hierarchy.'''
+
+    #Sets the current Level one step into the hierarchy.
+    currentLevel = list(formulas.values())[0]
+
+    #Displays the current level and allows for the user to pick the next level to enter.
+    print(list(currentLevel.keys()))
+    catChoice = input("Please enter a number from 1 - " + str(len(currentLevel)) + " to choose a category: ")
+    currentLevel = list(currentLevel[list(currentLevel.keys())[int(catChoice) - 1]].values())[0]
+
+    #Displays all formulas within topic subsection, allowing user to pick the desired Formula.
+    print(list(currentLevel.keys()))
+    catChoice = input("Please enter a number from 1 - " + str(len(currentLevel)) + " to choose your formula: ")
+    currentLevel = currentLevel[list(currentLevel.keys())[int(catChoice) - 1]]
+    print(currentLevel)
+
+
 if __name__ == '__main__':
     formulas = loadJSON()
     inverted_dict = invertJSON(formulas)
-    #findFormulaFromTags(inverted_dict, formulas)
-    findFormulaFromTextSearch(formulas)
+
+    #Loop to allow continuous searching.
+    while True:
+        print("To search by Tag, Enter '1'. To search by Text, Enter '2'. To search by Category, Enter '3'. To Exit, Enter 'x'.")
+        navChoice = input()
+
+        if navChoice == "1":
+            #Search by Tag.
+            findFormulaFromTags(inverted_dict, formulas)
+        elif navChoice == "2":
+            #Search by Text.
+            findFormulaFromTextSearch(formulas)
+        elif navChoice == "3":
+            #Search by Category.
+            findFormulaFromCategory(formulas)
+        elif navChoice == "x" or navChoice == "X":
+            #Exit Loop/Program.
+            break
+
+    print("Thank you for using the formula search!")
+    print("Exiting...")
     #print(formulas)
 
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
